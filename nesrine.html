@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club de sport </title>
+    <script type="text/javaScript">
+
+
+
+
+test=function() {
+        var pas1=document.f.pass.value;
+        var pas2=document.f.cpass.value;
+        if(pas1!==pas2){
+            document.getElementById("msg").innerHTML="Invalid"; //innerHTML 
+            // document.getElementById("msg").style.color = "red";
+             }else{
+            document.getElementById("msg").innerHTML="Valid";
+            // document.getElementById("msg").style.color = "green";
+ }}
+
+
+
+
+    </script>
+    <style>
+        legend{color:blue;  font-size: 14px; font-style:arial;text-shadow:  2px 2px greenyellow; }
+        tr td  :first-child {
+            color: blueviolet;
+            font-size: 10px;
+            font-family: Arial;
+        }
+        input{
+            background-color: aquamarine;
+            border: 2px solid blue;
+            border-radius: 10px 10 px;
+        }
+        input{
+    background: aquamarine;
+    border: 2px solid blue;
+    border-radius: 10px 10px;
+}
+input:hover{
+    background: bisque;
+}
+input:focus{
+    background: aliceblue;
+    color: black;
+}
+ 
+.classe:hover{
+    width: 70px;
+    height: 40px;
+    border: 2px dashed background;
+    background: beige;
+}
+
+    </style>
+</head>
+
+
+
+<body>
+    <form name="f" onsubmit="test()" >
+    <fieldset>
+        <legend>Inscription</legend>
+        <table boder =0>
+      <tr>
+       <td> <label for=nom>Nom</label> 
+       <input type="text" name="nom" id="nom"/>
+      </td>
+     </tr>
+
+
+
+       <tr>
+        <td> <label for=prenom>Prenom</label>
+       <input type="text" name="prenom" id="prenom"/>
+     </td>
+     </tr>
+
+
+
+
+       <tr>
+            <td>
+                 <label for=DateNaissance>Date de naissance</label>
+       <input type="date" name="DateNaissance" id="DateNaissance"/>
+     </td>
+     </tr>
+
+
+
+
+       <tr>
+           <td> <label for=pass>Mot de passe</label>
+       <input type="password" name="pass" id="pass">  </td> 
+       <label id="msg"> heellooooo</label>
+    </tr>
+
+
+
+
+
+       <tr> 
+           <td> <label for=nom>Confirmer Votre mot de passe</label>
+               <input type="password" name="cpass" id="cpass">
+           </td>
+      
+       </tr>
+    </table>
+    <input type="submit" value="Valider" class="classe">
+    <input type="reset" value="Annuler">
+
+   
+    </fieldset>
+</form>
+
+
+<!-- <button type="button"  onclick="test()"> <P id ="msg"> </P>
+<td>
+    <label id ="msg">*</label>
+ </td>
+</tr>
+<tr>
+    <td></td>
+<td>
+ <input type="submit" value="Valider" class="classe"/>
+<input type="reset" value="Annuler" class="classe"/> -->
+
+
+</body>
+</html>

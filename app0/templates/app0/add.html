@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="../../static/form/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="../../static/form/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="../../static/form/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="../../static/form/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+    <link href="../../static/form/css/main.css" rel="stylesheet" media="all">
+</head>
+<body>
+            <div class="card-heading">
+                <h2 class="title"> Registration Form</h2>
+            </div>
+            <div class="card-body">
+                <form action="{% url 'app0:ajouter'  %}" method="POST">
+                  {% csrf_token %}
+                <!-- *************************************** -->
+                  <div class="form-row m-b-55">
+                    <div class="name" for="{{ form.name.id_for_label }}">Name</div>
+                    <div class="value">
+                        <div class="row row-refine">
+                            <div class="col-9">
+                                <div class="input-group-desc">
+                                    <input class="input--style-5" type="text" name="name">
+                                    <label class="label--desc"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                    <!-- ****************************************** -->
+                  <div class="form-row m-b-55">
+                    <div class="name">CIN</div>
+                    <div class="value">
+                        <div class="row row-refine">
+                            <div class="col-9">
+                                <div class="input-group-desc">
+                                    <input class="input--style-5" type="text" >
+                                    <label class="label--desc"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                <!-- ************************************* -->
+                  <div class="form-row m-b-55">
+                    <div class="name" for="{{ form.carNumber.id_for_label }}">CarNumber</div>
+                    <div class="value">
+                        <div class="row row-refine">
+                            <div class="col-9">
+                                <div class="input-group-desc">
+                                    <input class="input--style-5" type="text"  name="carNumber" >
+                                    <label class="label--desc"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                <!-- ************************************ -->
+                    <div class="form-row">
+                        <div class="name">Address</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-5" type="text" name="company">
+                            </div>
+                        </div>
+                    </div>
+                <!-- ************************************* -->
+                    <div class="form-row m-b-55">
+                        <div class="name">Phone</div>
+                        <div class="value">
+                            <div class="row row-refine">
+                                <div class="col-9">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" type="text" name="phone">
+                                        <label class="label--desc">Phone Number</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <!-- ************************************** -->
+                    <div>
+                        <button class="btn btn--radius-2 btn--red" type="submit">Add</button>   
+                    </div>
+                </form>
+
+ <!-- ************* -->
+ {% if errors %}
+  <div>
+    {% for key, error in errors %}
+    {% autoescape off %}
+      {{ error }}
+    {% endautoescape %}
+    {% endfor %}
+  </div>
+  {% endif %}
+<!-- ********* -->
+            </div>
+</body>
+</html>
