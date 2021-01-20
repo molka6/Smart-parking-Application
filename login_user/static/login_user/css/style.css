@@ -5,7 +5,6 @@ body{
 	margin: 0;
 	padding: 0;
 	background: #fff;
-
 	color: #fff;
 	font-family: Arial;
     font-size: 12px;
@@ -42,14 +41,14 @@ body{
 .header{
 	position: absolute;
 	top: calc(50% - 35px);
-	left: calc(50% - 255px);
+	left: calc(50% - 267px);
 	z-index: 2;
 }
 
 .header div{
 	float: left;
 	color: #fff;
-	font-family: 'Exo', sans-serif;
+	font-family: 'Fjalla One', sans-serif;
 	font-size: 35px;
 	font-weight: 200;
 }
@@ -95,7 +94,7 @@ body{
 	margin-top: 10px;
 }
 
-.login input[type=button]{
+.login input[type=submit]{
 	width: 260px;
 	height: 35px;
 	background: #fff;
