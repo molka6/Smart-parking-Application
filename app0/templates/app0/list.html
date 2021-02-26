@@ -29,9 +29,19 @@
                               <td>{{ user.created_at }} </td>
                               <td><span class="label label-info label-mini"></span></td>
                               <td>
+
+
                                 <!-- <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button> -->
-                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                <button class="btn btn-primary btn-xs" type="submit"><i class="fa fa-pencil"></i></button>
+
+
+                                <a href="{% url 'app0:delete' user_id=user.id %}">
                                 <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                </a>
+
+
+
+
                               </td>
               
                             </tr>

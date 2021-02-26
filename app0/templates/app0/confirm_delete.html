@@ -1,0 +1,99 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    {% include 'app0/head.html' %} 
+<body>
+
+
+    <div id="tm-bg"></div>
+    <div id="tm-wrap">
+        <div class="tm-main-content">
+            <div class="container tm-site-header-container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-md-col-xl-6 mb-md-0 mb-sm-4 mb-4 tm-site-header-col">
+                        <div class="tm-site-header">
+                            <!-- **** -->
+                            <div class="container">
+                                <div class="row"></div>
+                                <br/>
+                                <div class="row">
+                                <div class="col-md-2 col-xs-2 col-sm-2"></div>
+                                    <div class="col-md-10 col-xs-10 col-sm-10">
+
+
+
+                                        <form method="post" >
+                                            {% csrf_token %}
+                                          <div class="form-row">
+                                            <div class="alert alert-warning">
+                                                Are you sure you want to delete {{ user_name}} ?
+                                            </div>
+                                          </div>
+
+
+                                          <button type="submit" class="btn btn-danger" name="yes">
+                                              <span class="glyphicon glyphicon-trash"> yes</span>
+                                          </button>
+
+                                          <button type="submit" class="btn btn-primary btn-xs"  name="no" >
+                                            <span class="glyphicon glyphicon-trash"> No</span>
+                                         </button>
+
+
+                                        </form>
+                                    </div>
+                                </div>
+                                </div>
+                            <!-- ****** -->
+
+
+
+                        </div>                        
+                    </div>
+                </div>                
+            </div>
+            <!-- ********** -->
+            <footer>
+                <p class="small tm-copyright-text">Copyright &copy; <span class="tm-current-year">2018</span> Molka&Iheb
+                
+                    </p>
+            </footer>
+            <!-- *************** -->
+        </div> 
+    </div>
+    <!-- load JS -->
+    <script src="../static/app0/js/jquery-3.2.1.slim.min.js"></script>      
+    <script src="../static/app0/slick/slick.min.js"></script>                  
+    <script src="../static/app0/js/anime.min.js"></script>                     
+    <script src="../static/app0/js/main.js"></script>  
+    <script>      
+        function setupFooter() {
+            var pageHeight = $('.tm-site-header-container').height() + $('footer').height() + 100;
+
+            var main = $('.tm-main-content');
+
+            if($(window).height() < pageHeight) {
+                main.addClass('tm-footer-relative');
+            }
+            else {
+                main.removeClass('tm-footer-relative');   
+            }
+        }
+        /* DOM is ready
+        ------------------------------------------------*/
+        $(function(){
+
+            setupFooter();
+
+            $(window).resize(function(){
+                setupFooter();
+            });
+
+            $('.tm-current-year').text(new Date().getFullYear());  // Update year in copyright           
+        });
+
+    </script>             
+
+</body>
+</html>
