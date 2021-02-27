@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
     {% include 'app0/head.html' %} 
@@ -22,6 +20,23 @@
                                     <div class="col-md-10 col-xs-10 col-sm-10">
 
 
+                                        <div class="grid__item" id="home-link">
+                                            <div class="product">
+                                               
+                
+                                                 <div class="product__description">
+                                                  
+                                                  
+                                                    {{ user_id}} <br>
+                                                    {{ user_name}} <br>
+                                                    {{ user_number}} <br>
+                                                    {{ created}} <br>
+                                                    
+                                                 </div> 
+                
+                
+                                            </div>
+                                        </div>
 
                                         <form method="post" >
                                             {% csrf_token %}

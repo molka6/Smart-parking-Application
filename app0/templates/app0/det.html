@@ -1,9 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="{% static 'app0/img/icon.png' %}" />
+        <title>SmartParking</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300">
+        <link rel="stylesheet" href="{% static 'app0/css/bootstrap.min.css' %}">   
+    
+        <link rel="stylesheet" href="{% static 'app0/fontawesome/css/fontawesome-all.min.css' %}">     
+        
+        
+        <link rel="stylesheet" type="text/css"  href="{% static 'app0/slick/slick.css' %}"/>
+        
+        <link rel="stylesheet" type="text/css"  href="{% static 'app0/slick/slick-theme.css' %}"/>
+    
+    
+    
+        <link rel="stylesheet"  href="{% static 'app0/css/styly.css' %}"> 
+    
+    
+    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this in a modern browser such as latest version of Chrome or Microsoft Edge.");</script>
+        
+        <link  href="{% static 'app0/font-awesome/css/font-awesome2.css' %}" rel="stylesheet" />
+    
+    </head>
+<body>
+
+    <div id="tm-bg"></div>
+    <div id="tm-wrap">
+        <div class="tm-main-content">
+            <div class="container tm-site-header-container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-md-col-xl-6 mb-md-0 mb-sm-4 mb-4 tm-site-header-col">
+
+                        <div class="grid__item" id="home-link">
+                            <div class="product">
+                               
+
+                                 <div class="product__description">
+
+                                    <a href="{% url 'app0:index1' %}">
+                                    <button class="btn-xs">
+                                        <i class="fa fa-backward" aria-hidden="true"></i>
+                                    </button>
+                                    </a>
 
 
+                                    <br>
+                                    {{ user_id}} <br>
+                                    {{ user_name}} <br>
+                                    {{ user_number}} <br>
+                                    {{ created}} <br>
+                                    
+                             
+                                 </div> 
 
- {{ user_id}}
- {{ user_name}}
- {{ user_number}}
- {{ created}}
- 
+
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+            
+            <!-- ********** -->
+            <footer>
+                <p class="small tm-copyright-text">Copyright &copy; <span class="tm-current-year">2018</span> Molka&Iheb
+                
+                    </p>
+            </footer>
+            <!-- *************** -->
+        </div> 
+    </div>
+    <!-- load JS -->
+    <script src="../static/app0/js/jquery-3.2.1.slim.min.js"></script>      
+    <script src="../static/app0/slick/slick.min.js"></script>                  
+    <script src="../static/app0/js/anime.min.js"></script>                     
+    <script src="../static/app0/js/main.js"></script>  
+    <script>      
+        function setupFooter() {
+            var pageHeight = $('.tm-site-header-container').height() + $('footer').height() + 100;
+
+            var main = $('.tm-main-content');
+
+            if($(window).height() < pageHeight) {
+                main.addClass('tm-footer-relative');
+            }
+            else {
+                main.removeClass('tm-footer-relative');   
+            }
+        }
+        /* DOM is ready
+        ------------------------------------------------*/
+        $(function(){
+
+            setupFooter();
+
+            $(window).resize(function(){
+                setupFooter();
+            });
+
+            $('.tm-current-year').text(new Date().getFullYear());  // Update year in copyright           
+        });
+
+    </script>             
+
+</body>
+</html>
+
 

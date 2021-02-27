@@ -17,3 +17,4 @@ class UserForm(forms.Form):
         widget=forms.TextInput(attrs={'class': 'form-control'}),
         required=True
         )
+        fields = "__all__"

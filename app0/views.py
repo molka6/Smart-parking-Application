@@ -8,7 +8,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .forms import UserForm
 from django.views.generic.edit import DeleteView
-
+from .forms import UserForm
 
 def index1(request):
     users = User.objects.all()
@@ -17,8 +17,6 @@ def index1(request):
         'users': users
     }
     return HttpResponse(template.render(context, request=request))
-
-
 def detail_element(request,user_id):
     user = User.objects.get(pk=user_id)
     context = {
@@ -28,7 +26,6 @@ def detail_element(request,user_id):
          'created':user.created_at
     }
     return render(request, 'app0/det.html', context)
-
 def delete(request, user_id ,template_name='app0/confirm_delete.html'):
     user= get_object_or_404(User, pk=user_id)   
     if request.method=='POST' and 'yes' in request.POST:
@@ -41,6 +38,13 @@ def delete(request, user_id ,template_name='app0/confirm_delete.html'):
         'user_name':user.name,
     }
     return render(request, template_name, { 'user_name':user.name},)
+def edit(request,user_id, template_name='app0/edit.html'):
+    user= get_object_or_404(User,pk=user_id)
+    form = UserForm(request.POST or None, user)
+    if form.is_valid():
+        form.save()
+        return redirect('/app0/')
+    return render(request, template_name, {'form':form})
 
 def ajouter(request):
     if request.method == 'POST':
@@ -76,6 +80,9 @@ def search(request):
         'name' : name ,   
     }
     return render(request, 'app0/search.html', context)
+
+
+
 
 def ind(request):
     return render(request, 'app0/search.html')
