@@ -9,6 +9,8 @@ from django.contrib import messages
 from .forms import UserForm
 from django.views.generic.edit import DeleteView
 from .forms import UserForm
+from django.views.generic import TemplateView, ListView
+from django.db.models import Q
 
 def index1(request):
     users = User.objects.all()
@@ -17,15 +19,20 @@ def index1(request):
         'users': users
     }
     return HttpResponse(template.render(context, request=request))
+
+
 def detail_element(request,user_id):
     user = User.objects.get(pk=user_id)
     context = {
         'user_id':user.id ,
          'user_name':user.name,
          'user_number': user.carNumber,
-         'created':user.created_at
+         'created':user.created_at,
+         'phone':user.phone
     }
     return render(request, 'app0/det.html', context)
+
+
 def delete(request, user_id ,template_name='app0/confirm_delete.html'):
     user= get_object_or_404(User, pk=user_id)   
     if request.method=='POST' and 'yes' in request.POST:
@@ -38,13 +45,22 @@ def delete(request, user_id ,template_name='app0/confirm_delete.html'):
         'user_name':user.name,
     }
     return render(request, template_name, { 'user_name':user.name},)
+
+
+
+
 def edit(request,user_id, template_name='app0/edit.html'):
     user= get_object_or_404(User,pk=user_id)
     form = UserForm(request.POST or None, user)
     if form.is_valid():
         form.save()
-        return redirect('/app0/')
+        return HttpResponseRedirect('/app0/')
+       
     return render(request, template_name, {'form':form})
+
+
+
+
 
 def ajouter(request):
     if request.method == 'POST':
@@ -70,25 +86,38 @@ def ajouter(request):
         context['form'] = form  
     return render(request, 'app0/add.html',context)
 
+
+
 def search(request):
-    query=request.GET.get('query')
-    if not query:
-        users=User.objects.all()
-    name = "Résultats pour la requête %s"%query
-    context = {
-        'users':  users,
-        'name' : name ,   
-    }
-    return render(request, 'app0/search.html', context)
+    if request.method=='GET':
+        search = request.GET.get('s')
+        users=User.objects.all().filter(name=search)
+        # return HttpResponseRedirect('app0/work.html')
+        return render(request, 'app0/list.html' , {'users':users} )        
 
 
+# def delete(request, user_id ,template_name='app0/confirm_delete.html'):
+#     user= get_object_or_404(User, pk=user_id)   
+#     if request.method=='POST' and 'yes' in request.POST:
+#         user.delete()
+#         return HttpResponseRedirect('/app0/')
+#     if request.method=='POST' and 'no' in request.POST:
+#         return HttpResponseRedirect('/app0/')       
+#     context = {
+#         'user_id':user.id ,
+#         'user_name':user.name,
+#     }
+#     return render(request, template_name, { 'user_name':user.name},)
+# 
 
-
-def ind(request):
-    return render(request, 'app0/search.html')
+# def index1(request):
+#     return render(request, 'app0/index1.html')
 def users(request):
     return render(request, 'users.html')
 def list(request):
     return render(request, 'app0/list.html')
+
+def work(request):
+    return render(request, 'app0/work.html')
 
   

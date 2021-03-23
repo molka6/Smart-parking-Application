@@ -103,13 +103,13 @@ p {
 
 .fa-3x { font-size: 2.5em; }
 
-/* .product {
+.product {
     background: transparent;
     transition: all 0.3s ease;
-} */
+}
 
-.product {
-    background: #2c2a35;
+.product:hover {
+    background: #746f8bda; 
     color: #a9a9a9;
 }
 
@@ -136,20 +136,19 @@ p {
     height: 100%;
     top: 0px;
 }
-/* 
+
 .product__bg,
 .product__description {
     opacity: 0;
     position: absolute;
-} */
+}
 
 .product__description {
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    /* 
-    display: none; */
+    display: none;
 }
 
 .tm-fa-close { font-size: 30px; }
@@ -358,15 +357,3 @@ p:last-child { margin-bottom: 0; }
     .fa-3x { font-size: 2.2em; }
 }
 
-.molka{
-    width: 700px;
-    height: 250px;
-    
-    padding-left: 50px;
-}
-
-.date{
-    float: right;
-    font-size: 15px;
-    padding: 5px 5px;
-}

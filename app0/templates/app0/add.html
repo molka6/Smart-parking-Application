@@ -16,41 +16,56 @@
                 <form action="{% url 'app0:ajouter'  %}" method="POST">
                   {% csrf_token %}
                 <!-- *************************************** -->
+
+
+
                   <div class="form-row m-b-55">
                     <div class="name" for="{{ form.name.id_for_label }}">Name</div>
                     <div class="value">
                         <div class="row row-refine">
                             <div class="col-9">
                                 <div class="input-group-desc">
-                                    <input class="input--style-5" type="text" name="name">
+                                    <input class="input--style-5" type="text" name="name" placeholder="your name">
                                     <label class="label--desc"></label>
                                 </div>
                             </div>
                         </div>
                     </div>
                   </div>
+
+
+
+
+
                     <!-- ****************************************** -->
+
+
                   <div class="form-row m-b-55">
-                    <div class="name">CIN</div>
+                    <div class="name" for="{{ form.cin.id_for_label }}">CIN</div>
                     <div class="value">
                         <div class="row row-refine">
                             <div class="col-9">
                                 <div class="input-group-desc">
-                                    <input class="input--style-5" type="text" >
+                                    <input class="input--style-5" type="text" name="cin" placeholder="********">
                                     <label class="label--desc"></label>
                                 </div>
                             </div>
                         </div>
                     </div>
                   </div>
+
+
+
+
+
                 <!-- ************************************* -->
                   <div class="form-row m-b-55">
-                    <div class="name" for="{{ form.carNumber.id_for_label }}">CarNumber</div>
+                    <div class="name" for="{{ form.carNumber.id_for_label }}">Car Number</div>
                     <div class="value">
                         <div class="row row-refine">
                             <div class="col-9">
                                 <div class="input-group-desc">
-                                    <input class="input--style-5" type="text"  name="carNumber" >
+                                    <input class="input--style-5" type="text"  name="carNumber" placeholder="Max 8 chars" >
                                     <label class="label--desc"></label>
                                 </div>
                             </div>
@@ -58,23 +73,15 @@
                     </div>
                   </div>
                 <!-- ************************************ -->
-                    <div class="form-row">
-                        <div class="name">Address</div>
-                        <div class="value">
-                            <div class="input-group">
-                                <input class="input--style-5" type="text" name="company">
-                            </div>
-                        </div>
-                    </div>
-                <!-- ************************************* -->
+                
                     <div class="form-row m-b-55">
-                        <div class="name">Phone</div>
+                        <div class="name" for="{{ form.phone.id_for_label }}">Phone</div>
                         <div class="value">
                             <div class="row row-refine">
                                 <div class="col-9">
                                     <div class="input-group-desc">
-                                        <input class="input--style-5" type="text" name="phone">
-                                        <label class="label--desc">Phone Number</label>
+                                        <input class="input--style-5" type="text" name="phone" placeholder="+216">
+                                        <!-- <label class="label--desc">Phone Number</label> -->
                                     </div>
                                 </div>
                             </div>
